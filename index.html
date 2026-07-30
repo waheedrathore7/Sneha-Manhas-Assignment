@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAVE Campaign — Sneha Manhas | Trackzio Assignment</title>
+<link rel="icon" href="assets/crave-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1830;
+  --navy-2:#132846;
+  --cream:#FFF6EC;
+  --cream-2:#FBE9D6;
+  --orange:#F04E1F;
+  --orange-dark:#C93E17;
+  --steel:#E3E7EA;
+  --steel-dark:#9AA5AC;
+  --ink:#151512;
+  --muted:#5c584f;
+  --muted-on-navy:#A9B6CC;
+  --display:'Baloo 2',sans-serif;
+  --body:'Work Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange);
+  font-weight:500;
+}
+.eyebrow.on-navy{color:#FF9268}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--navy);
+  color:var(--cream);
+  padding:64px 0 48px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-120px;top:-120px;
+  width:420px;height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(240,78,31,0.18) 0%,rgba(240,78,31,0) 70%);
+}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:44px;position:relative;z-index:1;flex-wrap:wrap}
+.brand-lockup{display:flex;align-items:center;gap:10px}
+.brand-lockup img{width:34px;height:34px;border-radius:8px}
+.brand-lockup span{font-family:var(--mono);font-size:13px;color:var(--muted-on-navy);letter-spacing:.05em}
+.hero-tag{font-family:var(--mono);font-size:12px;color:var(--muted-on-navy);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.18);padding:6px 12px;border-radius:100px}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;position:relative;z-index:1}
+.hero h1{font-size:clamp(32px,4.6vw,54px);font-weight:700;color:var(--cream)}
+.hero h1 em{font-style:normal;color:var(--orange);background:none}
+.hero-bio{margin-top:22px;font-size:17px;line-height:1.65;color:var(--muted-on-navy);max-width:52ch}
+.role-tags{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.role-tags span{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);padding:6px 12px;border-radius:100px;color:#E8ECF3}
+.hero-cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  font-family:var(--body);font-weight:600;font-size:14.5px;
+  padding:13px 22px;border-radius:100px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-dark)}
+.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(255,255,255,0.35)}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.hero-contact{
+  font-family:var(--mono);font-size:12.5px;color:var(--muted-on-navy);
+  display:flex;flex-direction:column;gap:8px;align-items:flex-end;text-align:right;
+}
+.hero-contact a{text-decoration:none;color:var(--muted-on-navy)}
+.hero-contact a:hover{color:var(--orange)}
+
+@media(max-width:760px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-contact{align-items:flex-start;text-align:left;margin-top:8px}
+}
+
+/* ---------- BRIEF STRIP ---------- */
+.brief{background:var(--cream-2);border-bottom:1px solid rgba(10,24,48,0.06)}
+.brief .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:34px 24px}
+.brief-item span.k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.brief-item span.v{font-family:var(--display);font-size:19px;font-weight:600;color:var(--ink)}
+@media(max-width:720px){.brief .wrap{grid-template-columns:1fr;gap:16px}}
+
+/* ---------- TIFFIN NAV (signature element) ---------- */
+.tiffin-nav{
+  position:sticky;top:0;z-index:40;
+  background:linear-gradient(#EEF1F2,#DDE2E5);
+  border-bottom:2px solid var(--steel-dark);
+  box-shadow:0 6px 18px rgba(10,24,48,0.10);
+}
+.tiffin-nav .wrap{display:flex;padding:0;overflow-x:auto;scrollbar-width:none}
+.tiffin-nav .wrap::-webkit-scrollbar{display:none}
+.tiffin-cell{
+  flex:1 0 auto;
+  min-width:118px;
+  padding:12px 14px;
+  text-align:center;
+  border-right:1px solid rgba(10,24,48,0.10);
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .15s ease;
+  position:relative;
+}
+.tiffin-cell:last-child{border-right:none}
+.tiffin-cell .num{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:2px}
+.tiffin-cell .lbl{display:block;font-family:var(--body);font-size:12.5px;font-weight:600;color:var(--ink)}
+.tiffin-cell:hover{background:rgba(240,78,31,0.08)}
+.tiffin-cell.active{background:var(--orange)}
+.tiffin-cell.active .num,.tiffin-cell.active .lbl{color:#fff}
+.tiffin-cell.active::after{
+  content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--orange);
+}
+
+/* ---------- BIG IDEA ---------- */
+.big-idea{padding:76px 0 68px;text-align:center}
+.big-idea .eyebrow{display:block;margin-bottom:18px}
+.big-idea h2{font-size:clamp(30px,5.4vw,58px);color:var(--navy);font-weight:700}
+.big-idea h2 .accent{color:var(--orange)}
+.big-idea p{max-width:62ch;margin:24px auto 0;font-size:17px;line-height:1.7;color:var(--muted)}
+
+/* ---------- DELIVERABLES ---------- */
+.deliverable{padding:70px 0;border-top:1px solid rgba(10,24,48,0.08)}
+.deliverable .inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.deliverable.reverse .inner{direction:rtl}
+.deliverable.reverse .inner > *{direction:ltr}
+.d-head{margin-bottom:6px}
+.d-head .eyebrow{display:block;margin-bottom:14px}
+.d-head h3{font-size:clamp(22px,3vw,32px);color:var(--navy)}
+.hook-tag{
+  display:inline-block;margin-top:14px;font-family:var(--mono);font-size:12px;
+  color:var(--orange-dark);background:rgba(240,78,31,0.08);padding:5px 11px;border-radius:6px;
+}
+.answers{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.answer-compartment{
+  background:#fff;border:1px solid var(--steel);border-radius:14px;
+  padding:18px 20px;box-shadow:0 2px 0 var(--steel);
+}
+.answer-compartment .q{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--steel-dark);margin-bottom:8px;font-weight:500;
+}
+.answer-compartment .a{font-size:15px;line-height:1.65;color:var(--ink)}
+.caption-block{
+  margin-top:22px;background:var(--navy);color:var(--cream);border-radius:14px;padding:18px 20px;
+  font-size:14px;line-height:1.7;
+}
+.caption-block .cap-label{font-family:var(--mono);font-size:10.5px;color:#FF9268;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:8px}
+.caption-block b{color:#fff}
+
+.media-col{position:sticky;top:90px}
+@media(max-width:900px){
+  .deliverable .inner{grid-template-columns:1fr}
+  .deliverable.reverse .inner{direction:ltr}
+  .media-col{position:static;order:-1}
+}
+
+/* ---- Instagram-style mockup shell ---- */
+.ig-mock{
+  max-width:380px;margin:0 auto;background:#fff;border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(10,24,48,0.18);border:1px solid #ECECEC;
+}
+.ig-head{display:flex;align-items:center;gap:10px;padding:11px 13px}
+.ig-head img.avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--orange)}
+.ig-head .uname{font-size:13px;font-weight:700}
+.ig-head .dots{margin-left:auto;font-weight:700;color:#666;letter-spacing:2px}
+.ig-actions{display:flex;align-items:center;gap:14px;padding:11px 13px 4px}
+.ig-actions svg{width:22px;height:22px}
+.ig-actions .save{margin-left:auto}
+.ig-likes{padding:6px 13px 2px;font-size:13px;font-weight:700}
+.ig-caption{padding:4px 13px 14px;font-size:13px;line-height:1.55}
+.ig-caption b{font-weight:700}
+
+/* ---- Carousel ---- */
+.carousel-media{position:relative;background:#F6EFE6}
+.carousel-track{
+  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;cursor:grab;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.carousel-slide{flex:0 0 100%;scroll-snap-align:center}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;aspect-ratio:1122/1402;user-select:none;-webkit-user-drag:none}
+.carousel-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,0.9);border:none;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:2;
+}
+.carousel-arrow.prev{left:10px}
+.carousel-arrow.next{right:10px}
+.carousel-counter{
+  position:absolute;top:10px;right:12px;background:rgba(0,0,0,0.55);color:#fff;
+  font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:100px;z-index:2;
+}
+.carousel-dots{display:flex;justify-content:center;gap:6px;padding:10px 0 2px}
+.carousel-dots button{
+  width:6px;height:6px;border-radius:50%;border:none;background:#D8D2C7;padding:0;cursor:pointer;
+}
+.carousel-dots button.active{background:var(--orange);width:16px;border-radius:4px;transition:width .2s ease}
+
+/* ---- static post / meme image ---- */
+.post-media img{width:100%;display:block}
+
+/* ---- reel ---- */
+.reel-frame{
+  max-width:300px;margin:0 auto;border-radius:26px;overflow:hidden;position:relative;
+  box-shadow:0 24px 60px rgba(10,24,48,0.22);border:8px solid var(--navy);background:#000;
+  aspect-ratio:480/854;
+}
+.reel-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-mute{
+  position:absolute;bottom:14px;right:14px;width:34px;height:34px;border-radius:50%;
+  background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.4);color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;
+}
+.reel-frame::before{
+  content:"REEL";position:absolute;top:14px;left:14px;color:#fff;font-family:var(--mono);
+  font-size:10px;letter-spacing:.14em;background:rgba(0,0,0,0.4);padding:3px 8px;border-radius:100px;z-index:2;
+}
+
+/* ---------- CONCLUSION ---------- */
+.conclusion{background:var(--navy);color:var(--cream);padding:80px 0;text-align:center}
+.conclusion .eyebrow{display:block;margin-bottom:18px}
+.conclusion h2{font-size:clamp(26px,4.2vw,42px);max-width:20ch;margin:0 auto;font-weight:700}
+.conclusion h2 .accent{color:var(--orange)}
+.conclusion p{max-width:62ch;margin:26px auto 0;color:var(--muted-on-navy);font-size:16px;line-height:1.75}
+
+/* ---------- AI USAGE ---------- */
+.ai-usage{padding:56px 0;background:var(--cream)}
+.ai-card{
+  max-width:760px;margin:0 auto;background:#fff;border:1px dashed var(--steel-dark);
+  border-radius:16px;padding:28px 30px;
+}
+.ai-card .eyebrow{display:block;margin-bottom:12px}
+.ai-card p{font-size:14.5px;line-height:1.75;color:var(--muted);margin:0}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy-2);color:var(--muted-on-navy);padding:44px 0}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-grid .lockup{display:flex;align-items:center;gap:10px}
+.footer-grid .lockup img{width:30px;height:30px;border-radius:7px}
+.footer-grid .lockup b{color:var(--cream);font-family:var(--display);font-size:15px}
+.footer-links{display:flex;gap:18px;font-size:13px}
+.footer-links a{text-decoration:none;color:var(--muted-on-navy)}
+.footer-links a:hover{color:var(--orange)}
+.footer-note{font-family:var(--mono);font-size:11.5px;color:#5f6d84;margin-top:24px;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="brand-lockup">
+        <img src="assets/crave-logo.png" alt="CRAVE">
+        <span>CRAVE campaign · submitted for Trackzio</span>
+      </div>
+      <div class="hero-tag">Content &amp; Social Media Marketing Manager — Assignment</div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Hi, I'm Sneha. I turn <em>lunch breaks</em> into content people stop scrolling for.</h1>
+        <p class="hero-bio">Three years in social media, six-odd industries, and one Urdu poetry page that quietly crossed 10M views without anyone clocking it was basically a full-time job. I've grown pages from scratch, run the ad budgets behind them, and managed five clients at once without any of them finding out about the other four. This time the brief was smaller than usual — just a lunch box. So naturally, I built a whole campaign around it.</p>
+        <div class="role-tags">
+          <span>Social Media Manager</span>
+          <span>Content Strategist</span>
+          <span>Copywriter</span>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#brief" class="btn btn-primary">See the campaign ↓</a>
+          <a href="assets/sneha-manhas-cv.pdf" target="_blank" class="btn btn-ghost">Download CV</a>
+        </div>
+      </div>
+      <div class="hero-contact">
+        <span>Jammu, India</span>
+        <span>Open to Remote Roles</span>
+        <a href="mailto:snehamanhas014@gmail.com">snehamanhas014@gmail.com</a>
+        <a href="tel:+917889402087">+91 7889402087</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRIEF ============ -->
+<section class="brief" id="brief">
+  <div class="wrap">
+    <div class="brief-item"><span class="k">Object</span><span class="v">A Lunch Box</span></div>
+    <div class="brief-item"><span class="k">Brand</span><span class="v">CRAVE — Your Cravings. Delivered.</span></div>
+    <div class="brief-item"><span class="k">The challenge</span><span class="v">Turn an everyday lunch box into a story that leads straight to a food app — without it feeling like an ad.</span></div>
+  </div>
+</section>
+
+<!-- ============ TIFFIN NAV ============ -->
+<nav class="tiffin-nav" id="tiffinNav">
+  <div class="wrap">
+    <a href="#d1" class="tiffin-cell" data-target="d1"><span class="num">01</span><span class="lbl">Carousel</span></a>
+    <a href="#d2" class="tiffin-cell" data-target="d2"><span class="num">02</span><span class="lbl">Room to Crave</span></a>
+    <a href="#d3" class="tiffin-cell" data-target="d3"><span class="num">03</span><span class="lbl">Lunchbox Promise</span></a>
+    <a href="#d4" class="tiffin-cell" data-target="d4"><span class="num">04</span><span class="lbl">Meme: Match</span></a>
+    <a href="#d5" class="tiffin-cell" data-target="d5"><span class="num">05</span><span class="lbl">Meme: Avengers</span></a>
+    <a href="#d6" class="tiffin-cell" data-target="d6"><span class="num">06</span><span class="lbl">The Reel</span></a>
+  </div>
+</nav>
+
+<!-- ============ BIG IDEA ============ -->
+<section class="big-idea">
+  <div class="wrap">
+    <span class="eyebrow">The Big Idea</span>
+    <h2>Lunch Beyond the <span class="accent">Lunch Box.</span></h2>
+    <p>A lunch box isn't just a container — it's routine, memory, and someone's idea of care. But cravings don't stay put. Office lunches get rushed, tastes wander, and everyone's secretly eyeing the tray next to them. CRAVE isn't the opposite of a lunch box — it's what it grows into. One insight, four formats: nostalgia, office humour, emotion, and a meme or two nobody asked for but everyone will forward.</p>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 01 — CAROUSEL ============ -->
+<section class="deliverable" id="d1">
+  <div class="wrap inner">
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 01 — Instagram Carousel</span>
+        <h3>Nobody Actually Wanted Their Own Lunch.</h3>
+        <span class="hook-tag">Hook: "Nobody actually wanted their own lunch."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">Every office runs on the same secret: nobody wants their own lunch. The carousel opens on that shared truth, then flips it — what if everyone could order exactly what they were craving, together, in one shot? That's where CRAVE walks in.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box is routine. CRAVE is choice. It doesn't replace the ritual of eating together — it just lets everyone stop side-eyeing each other's tiffins.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">It opens on something almost everyone has lived through, so people don't scroll past — they nod. By the time CRAVE shows up, it doesn't feel like an ad. It feels like the thing everyone already wanted.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        Be honest — when was the last time you actually wanted <i>your own</i> lunch? 👀 Swipe to see how CRAVE fixes the oldest problem at every desk. 🍱➡️🍕🍜🍔<br>
+        <b>#CraveApp #YourCravingsDelivered #OfficeLunch #GroupOrder</b>
+      </div>
+    </div>
+    <div class="media-col">
+      <div class="ig-mock">
+        <div class="ig-head">
+          <img class="avatar" src="assets/crave-logo.png" alt="">
+          <span class="uname">crave.eats</span>
+          <span class="dots">⋯</span>
+        </div>
+        <div class="carousel-media">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide"><img src="assets/carousel-1.png" alt="Slide 1: Nobody actually wanted their own lunch"></div>
+            <div class="carousel-slide"><img src="assets/carousel-2.png" alt="Slide 2: What if everyone could order what they actually wanted"></div>
+            <div class="carousel-slide"><img src="assets/carousel-3.png" alt="Slide 3: One order, different cravings, one lunch together"></div>
+          </div>
+          <button class="carousel-arrow prev" aria-label="Previous slide">‹</button>
+          <button class="carousel-arrow next" aria-label="Next slide">›</button>
+          <div class="carousel-counter" id="carouselCounter">1/3</div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="ig-actions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.6 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8L12 19l8.8-8.6c1.6-1.6 1.6-4.2 0-5.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-4.6 7.5 8.5 8.5 0 01-9-1L3 21l1.5-4.5a8.38 8.38 0 01-1-4A8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg class="save" viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="ig-likes">Liked by wildfreak_adventures and 2,340 others</div>
+        <div class="ig-caption"><b>crave.eats</b> Nobody actually wanted their own lunch. Swipe to see what fixes it →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 02 — STATIC POST ============ -->
+<section class="deliverable reverse" id="d2">
+  <div class="wrap inner">
+    <div class="media-col">
+      <div class="ig-mock">
+        <div class="ig-head">
+          <img class="avatar" src="assets/crave-logo.png" alt="">
+          <span class="uname">crave.eats</span>
+          <span class="dots">⋯</span>
+        </div>
+        <div class="post-media"><img src="assets/post-room-for-craving.png" alt="There's always room for one more craving"></div>
+        <div class="ig-actions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.6 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8L12 19l8.8-8.6c1.6-1.6 1.6-4.2 0-5.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-4.6 7.5 8.5 8.5 0 01-9-1L3 21l1.5-4.5a8.38 8.38 0 01-1-4A8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg class="save" viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="ig-likes">Liked by darbadar.waheed and 1,802 others</div>
+        <div class="ig-caption"><b>crave.eats</b> There's always room for one more craving.</div>
+      </div>
+    </div>
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 02 — Instagram Static Post</span>
+        <h3>There's Always Room for One More Craving.</h3>
+        <span class="hook-tag">Hook: "There's always room for one more craving."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">Every tiffin has that one compartment that always looks a little empty — like it was saving space for something else. That's the whole insight: there's always room for one more craving.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box does the storytelling here. CRAVE is simply what fills the gap — not a replacement for home food, just its perfect plus-one.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">One clean visual, one line, zero clutter. It asks the viewer to feel it before they read it — and that little pause is exactly what makes people stop scrolling.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        Every tiffin has that one empty corner. Turns out, it was always meant for something else. 🧡<br>
+        Fill the gap. CRAVE now.<br>
+        <b>#CraveApp #OneMoreCraving #FoodDelivery</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 03 — STATIC POST ============ -->
+<section class="deliverable" id="d3">
+  <div class="wrap inner">
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 03 — Instagram Static Post</span>
+        <h3>What the Lunch Box Promised vs. What It Actually Delivered.</h3>
+        <span class="hook-tag">Hook: "The lunch box art always lied to us."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">Every '90s kid remembers the lunch box art — burgers, pizza, fries, a donut for good measure — and then opening the lid to find aloo sabzi. This is that exact memory, drawn just how it felt.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box is the broken promise of childhood. CRAVE is the grown-up fix — finally ordering exactly what the box always promised and never delivered.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">Nostalgia is a near-universal trigger, and comic-book drama makes it pop in-feed. It's the kind of post people tag their siblings under.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        The lunch box art always lied to us. 😭🍕 Finally, an app that actually delivers what it promised.<br>
+        <b>#CraveApp #90sKid #LunchBoxPromise #DiscoverOrderCrave</b>
+      </div>
+    </div>
+    <div class="media-col">
+      <div class="ig-mock">
+        <div class="ig-head">
+          <img class="avatar" src="assets/crave-logo.png" alt="">
+          <span class="uname">crave.eats</span>
+          <span class="dots">⋯</span>
+        </div>
+        <div class="post-media"><img src="assets/post-lunchbox-promised.png" alt="What the lunch box promised vs what it actually delivered"></div>
+        <div class="ig-actions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.6 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8L12 19l8.8-8.6c1.6-1.6 1.6-4.2 0-5.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-4.6 7.5 8.5 8.5 0 01-9-1L3 21l1.5-4.5a8.38 8.38 0 01-1-4A8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg class="save" viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="ig-likes">Liked by fizool.baatein and 3,110 others</div>
+        <div class="ig-caption"><b>crave.eats</b> Finally, a food app that delivers exactly what you're craving.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 04 — MEME ============ -->
+<section class="deliverable reverse" id="d4">
+  <div class="wrap inner">
+    <div class="media-col">
+      <div class="ig-mock">
+        <div class="ig-head">
+          <img class="avatar" src="assets/crave-logo.png" alt="">
+          <span class="uname">crave.eats</span>
+          <span class="dots">⋯</span>
+        </div>
+        <div class="post-media"><img src="assets/meme-relationship-status.png" alt="My Lunch Break dating profile meme"></div>
+        <div class="ig-actions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.6 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8L12 19l8.8-8.6c1.6-1.6 1.6-4.2 0-5.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-4.6 7.5 8.5 8.5 0 01-9-1L3 21l1.5-4.5a8.38 8.38 0 01-1-4A8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg class="save" viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="ig-likes">Liked by 4,502 others</div>
+        <div class="ig-caption"><b>crave.eats</b> It's not you, it's your lunch box.</div>
+      </div>
+    </div>
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 04 — Meme</span>
+        <h3>Relationship Status: It's Complicated.</h3>
+        <span class="hook-tag">Hook: "Find your perfect lunch match."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">A dating profile where every relationship status gets swiped left — except one: "Looking at everyone else's lunch." It's the most honest bio any of us have ever had.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box becomes the punchline, CRAVE becomes the quiet hero fixing the actual problem — so nobody has to eye someone else's biryani again.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">The dating-app format is instantly recognisable, so the joke lands in half a second — and it doesn't feel like a brand pushing a message, it feels like a meme that already existed.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        Swiped left on every relationship status except one. 💔🍱<br>
+        Find your perfect lunch match. Order on CRAVE.<br>
+        <b>#CraveApp #LunchTinder #ItsComplicated</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 05 — MEME ============ -->
+<section class="deliverable" id="d5">
+  <div class="wrap inner">
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 05 — Meme</span>
+        <h3>The Lunch Avengers: Earth's Hungriest Heroes.</h3>
+        <span class="hook-tag">Hook: "Assemble your lunch squad."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">Every office already has its own superhero team — the fry thief, the chai addict, the guy who never brings lunch but always has a spoon. This just gives them capes.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box is the shared universe. CRAVE Group Order is the team's actual superpower — the one thing that gets everyone fed without an argument.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">Cinematic superhero energy plus painfully accurate office characters equals the kind of poster people send straight into the work group chat, tagging exactly who's who.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        Every office has one. The Fry Thief. Captain Chai. The Spoon Collector who never brings lunch. And the CRAVE Commander who saves everyone with one Group Order. 🦸‍♂️🍟<br>
+        Assemble your lunch squad.<br>
+        <b>#CraveApp #LunchAvengers #GroupOrder</b>
+      </div>
+    </div>
+    <div class="media-col">
+      <div class="ig-mock">
+        <div class="ig-head">
+          <img class="avatar" src="assets/crave-logo.png" alt="">
+          <span class="uname">crave.eats</span>
+          <span class="dots">⋯</span>
+        </div>
+        <div class="post-media"><img src="assets/meme-lunch-avengers.png" alt="The Lunch Avengers meme poster"></div>
+        <div class="ig-actions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0L12 7.6 9 4.6c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8L12 19l8.8-8.6c1.6-1.6 1.6-4.2 0-5.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-4.6 7.5 8.5 8.5 0 01-9-1L3 21l1.5-4.5a8.38 8.38 0 01-1-4A8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg class="save" viewBox="0 0 24 24" fill="none" stroke="#151512" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="ig-likes">Liked by wildfreak_adventures and 6,214 others</div>
+        <div class="ig-caption"><b>crave.eats</b> Different cravings. One hero. Assemble your lunch squad.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLE 06 — REEL ============ -->
+<section class="deliverable reverse" id="d6">
+  <div class="media-col-wrap">
+  <div class="wrap inner">
+    <div class="media-col">
+      <div class="reel-frame">
+        <video id="reelVideo" src="assets/reel.mp4" poster="assets/reel-poster.jpg" muted loop playsinline autoplay></video>
+        <button class="reel-mute" id="reelMuteBtn" aria-label="Toggle sound">🔇</button>
+      </div>
+    </div>
+    <div class="text-col">
+      <div class="d-head">
+        <span class="eyebrow">Deliverable 06 — Instagram Reel</span>
+        <h3>The Last First Bite.</h3>
+        <span class="hook-tag">Hook: "It was never just about the food."</span>
+      </div>
+      <div class="answers">
+        <div class="answer-compartment">
+          <div class="q">What's the idea?</div>
+          <div class="a">A story about someone who grew up on a lunch packed with love, every single day — and years later, away from home, realises it was never really about the food.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">How does it connect?</div>
+          <div class="a">The lunch box carries what a mother's cooking always meant — care, routine, home. CRAVE doesn't try to replace that. It just helps recreate the feeling of being looked after, wherever home is.</div>
+        </div>
+        <div class="answer-compartment">
+          <div class="q">Why does it capture attention?</div>
+          <div class="a">Most food-delivery content sells speed. This one sells a feeling first, and only brings in the brand once the emotion has already landed — which is exactly why it stays with you.</div>
+        </div>
+      </div>
+      <div class="caption-block">
+        <span class="cap-label">Caption copy</span>
+        It was never just about the food. 🥺🍱<br>
+        CRAVE — recreating the feeling of being taken care of, wherever home is.<br>
+        <b>#CraveApp #TheLastFirstBite #YourCravingsDelivered</b>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="conclusion">
+  <div class="wrap">
+    <span class="eyebrow on-navy">Campaign Conclusion</span>
+    <h2>One lunch box. Six formats. One idea that never needed a seventh.</h2>
+    <p>Carousel, static post, meme or reel — every format here comes from the same starting point: a lunch box was never just about food. It's memories, routines, and small everyday rituals. Humour gets the attention. Nostalgia gets the like. But it's the emotion that gets remembered — and that's the one thing every good campaign needs, whatever format it's wearing.</p>
+  </div>
+</section>
+
+<!-- ============ AI USAGE ============ -->
+<section class="ai-usage">
+  <div class="wrap">
+    <div class="ai-card">
+      <span class="eyebrow">AI Usage (Part 3)</span>
+      <p>The concept, storytelling direction and campaign strategy are mine. AI came in during execution — I used Claude to pressure-test and sharpen the original ideas, then ChatGPT (prompted to act as a creative director) to turn them into production-ready briefs. Those prompts went into ChatGPT Image Generation and Google Gemini for the carousel, posts, and memes. The reel was built in Google AI Studio (Veo) from scene-by-scene prompts, then edited together. AI moved things faster — the insight, direction, and final picks are mine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="lockup">
+        <img src="assets/crave-logo.png" alt="CRAVE">
+        <b>Sneha Manhas</b>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:snehamanhas014@gmail.com">Email</a>
+        <a href="tel:+917889402087">Call</a>
+        <a href="assets/sneha-manhas-cv.pdf" target="_blank">Download CV</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+    <div class="footer-note">Built for Trackzio's Content &amp; Social Media Marketing Manager assignment — CRAVE: Your Cravings. Delivered.</div>
+  </div>
+</footer>
+
+<script>
+// ---------- Carousel ----------
+(function(){
+  const track = document.getElementById('carouselTrack');
+  const dotsWrap = document.getElementById('carouselDots');
+  const counter = document.getElementById('carouselCounter');
+  const prevBtn = document.querySelector('.carousel-arrow.prev');
+  const nextBtn = document.querySelector('.carousel-arrow.next');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const total = slides.length;
+
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    if (i === 0) b.classList.add('active');
+    b.addEventListener('click', () => scrollToSlide(i));
+    dotsWrap.appendChild(b);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+
+  function scrollToSlide(i){
+    track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' });
+  }
+  function updateActive(){
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    counter.textContent = (i+1) + '/' + total;
+  }
+  let raf = null;
+  track.addEventListener('scroll', () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(updateActive);
+  });
+  prevBtn.addEventListener('click', () => {
+    const i = Math.max(0, Math.round(track.scrollLeft / track.clientWidth) - 1);
+    scrollToSlide(i);
+  });
+  nextBtn.addEventListener('click', () => {
+    const i = Math.min(total-1, Math.round(track.scrollLeft / track.clientWidth) + 1);
+    scrollToSlide(i);
+  });
+
+  // desktop mouse-drag swipe
+  let isDown = false, startX = 0, startScroll = 0;
+  track.addEventListener('mousedown', (e) => {
+    isDown = true; track.classList.add('dragging');
+    startX = e.pageX; startScroll = track.scrollLeft;
+  });
+  window.addEventListener('mouseup', () => {
+    if (!isDown) return;
+    isDown = false; track.classList.remove('dragging');
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    scrollToSlide(i);
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    track.scrollLeft = startScroll - (e.pageX - startX);
+  });
+
+  window.addEventListener('resize', updateActive);
+})();
+
+// ---------- Reel mute toggle ----------
+(function(){
+  const video = document.getElementById('reelVideo');
+  const btn = document.getElementById('reelMuteBtn');
+  btn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    btn.textContent = video.muted ? '🔇' : '🔊';
+    if (!video.muted) video.play();
+  });
+})();
+
+// ---------- Tiffin nav scroll-spy ----------
+(function(){
+  const cells = document.querySelectorAll('.tiffin-cell');
+  const sections = Array.from(cells).map(c => document.getElementById(c.dataset.target));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = sections.indexOf(entry.target);
+      if (entry.isIntersecting && idx > -1) {
+        cells.forEach(c => c.classList.remove('active'));
+        cells[idx].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => s && io.observe(s));
+})();
+</script>
+</body>
+</html>
